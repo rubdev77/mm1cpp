@@ -2,7 +2,6 @@
 #include <string>
 
 class Car;
-
 class Engine;
 
 class Driver
@@ -11,6 +10,7 @@ class Driver
     int age;
     bool hasDocuments;
     std::string mf;
+
     public:
     Driver(int ag, bool hs, std::string morf)
     {
@@ -18,18 +18,20 @@ class Driver
         hasDocuments = hs;
         mf = morf;
     }
+
     void PrintDriverProp()
     {
         std::cout << "Age: " << age << std::endl;
         std::cout << "With Documents: " << std::boolalpha << hasDocuments << std::endl;
-        std::cout << "Male of Female: " << mf << std::endl;
+        std::cout << "Male or Female: " << mf << std::endl;
     }
+
     bool Legal()
     {
-        if(hasDocuments && age>=16)
-        return true;
+        if(hasDocuments && age >= 16)
+            return true;
         else
-        return false;
+            return false;
     }
 };
 
@@ -38,68 +40,87 @@ class Engine
     private:
     int hps;
     bool hasOil;
+
     public:
+    Engine()
+    {
+        hps = 0;
+        hasOil = false;
+    }
+
     Engine(int horse, bool ol)
     {
         hps = horse;
         hasOil = ol;
     }
+
     void PrintEngineProp()
     {
         std::cout << "HorsePower: " << hps << std::endl;
         std::cout << "Has oil: " << std::boolalpha << hasOil << std::endl;
     }
+
     bool Normal()
     {
         if(hasOil)
-        return true;
+            return true;
         else
-        return false;
+            return false;
+    }
+
+    void SetEngine(int horse, bool oil)
+    {
+        hps = horse;
+        hasOil = oil;
     }
 };
 
 class Car
 {
     private:
-    std::string model;        
+    std::string model;
     std::string color;
     int year;
-    int hp;
-    int stage;
-    
+    Engine engine;
+
     public:
-    Car(std::string mdl, std::string clr, int yr)
+    Car(std::string mdl, std::string clr, int yr, Engine eng)
     {
         model = mdl;
         color = clr;
         year = yr;
+        engine = eng;
     }
+
     void PrintOptions()
     {
         std::cout << "Model: " << model << std::endl;
         std::cout << "Color: " << color << std::endl;
         std::cout << "Year: " << year << std::endl;
+        engine.PrintEngineProp();
     }
+
     void ChangeColor(std::string newcl)
     {
         color = newcl;
     }
-    void DriveCar(Driver &mydriver, Engine &myengine)
+
+    void DriveCar(Driver &mydriver)
     {
-        if(mydriver.Legal() && myengine.Normal())
+        if(mydriver.Legal() && engine.Normal())
         {
-        std::cout << "You can drive your car with this external options" << std::endl;
+            std::cout << "You can drive your car with this options:" << std::endl;
             mydriver.PrintDriverProp();
-            myengine.PrintEngineProp();
+            engine.PrintEngineProp();
         }
-        else if(mydriver.Legal() && myengine.Normal()==false)
+        else if(mydriver.Legal() && engine.Normal() == false)
         {
             std::cout << "You can't drive your car! Check your engine!" << std::endl;
-            myengine.PrintEngineProp();
+            engine.PrintEngineProp();
         }
-        else if(mydriver.Legal()==false && myengine.Normal())
+        else if(mydriver.Legal() == false && engine.Normal())
         {
-            std::cout << "You can't drive your car! Check the requirements for driving" << std::endl;
+            std::cout << "You can't drive your car! Check the requirements for driving!" << std::endl;
             mydriver.PrintDriverProp();
         }
         else
@@ -109,13 +130,11 @@ class Car
     }
 };
 
-
-
 int main()
 {
-    Car Bmw("Bmw M5 Competition", "Black", 2024);
-    Engine V10(1200, 1);
-    Driver R(18, 1, "Male");
-    Bmw.DriveCar(R, V10);
+    Engine V10(1200, true);
+    Car Bmw("Bmw M5 Competition", "Black", 2024, V10);
+    Driver R(18, true, "Male");
+    Bmw.DriveCar(R);
     return 0;
 }
