@@ -1,4 +1,10 @@
 #include "header55.h"
+Matrix::Matrix()
+{
+    mat = nullptr;
+    n = 0;
+    m = 0;
+}
 Matrix::Matrix(int row, int column)
 {
         n = row;
