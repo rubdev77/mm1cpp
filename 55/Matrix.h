@@ -1,5 +1,5 @@
-#ifndef HEADER55_H
-#define HEADER55_H
+#ifndef MATRIX_H
+#define MATRIX_H
 
 class Matrix
 {
