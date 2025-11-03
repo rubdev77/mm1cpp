@@ -1,5 +1,5 @@
-#include "header56.h"
-#include "header56Car.h"
+#include "Matrix.h"
+#include "Car.h"
 Matrix::Matrix()
 {
     mat = nullptr;
@@ -57,8 +57,4 @@ Matrix& Matrix::operator=(const Matrix& oth)
             }
         }
     return *this;
-}
-int main()
-{
-    return 0;
 }

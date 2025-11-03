@@ -1,5 +1,5 @@
-#ifndef HEADER56Car_H
-#define HEADER56Car_H
+#ifndef CAR_H
+#define CAR_H
 #include <iostream>
 class Car
 {
