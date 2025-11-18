@@ -8,12 +8,12 @@ class Animal
     int hands;
     public:
     Animal(int, int);
-    ~Animal() = default;
+    virtual ~Animal() = default;
     public:
     void Walk();
     void Eat();
     void Jump();
-    virtual void Voice();
+    virtual void Voice() = 0;
 };
 
 #endif

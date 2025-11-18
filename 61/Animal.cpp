@@ -17,7 +17,3 @@ void Animal::Jump()
 {
     std::cout << "Jumping..." << std::endl;
 }
-void Animal::Voice()
-{
-    std::cout << "Animal voices..." << std::endl;
-}
