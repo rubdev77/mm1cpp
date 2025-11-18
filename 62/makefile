@@ -2,7 +2,7 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall
 # Define the source files and the executable name
-SRCS = main.cpp Matrix.cpp
+SRCS = main.cpp Matrix.cpp ChessBoard.cpp
 TARGET = exe
 # Rule to build the target executable
 $(TARGET): $(SRCS)
