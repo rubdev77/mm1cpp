@@ -35,45 +35,6 @@ class Driver
     }
 };
 
-class Engine
-{
-    private:
-    int hps;
-    bool hasOil;
-
-    public:
-    Engine()
-    {
-        hps = 0;
-        hasOil = false;
-    }
-
-    Engine(int horse, bool ol)
-    {
-        hps = horse;
-        hasOil = ol;
-    }
-
-    void PrintEngineProp()
-    {
-        std::cout << "HorsePower: " << hps << std::endl;
-        std::cout << "Has oil: " << std::boolalpha << hasOil << std::endl;
-    }
-
-    bool Normal()
-    {
-        if(hasOil)
-            return true;
-        else
-            return false;
-    }
-
-    void SetEngine(int horse, bool oil)
-    {
-        hps = horse;
-        hasOil = oil;
-    }
-};
 
 class Car
 {

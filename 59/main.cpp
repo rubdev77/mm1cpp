@@ -122,6 +122,6 @@ int main() {
     k.Jump(); 
     k.Hop();
     p.Walk(); 
-    p.Swim();
+    p.Swim();   
     return 0;
 }
