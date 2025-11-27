@@ -1,25 +1,39 @@
 #include <iostream>
 
-static int count = 0;
+
 
 class A
 {
-    int a;
-    int b;
+    static int count;
     public:
-    A(int a, int b) : a(a), b(b)
+    A()
     {
         count++;
     }
+    A(const A& other)
+    {
+        count++;
+    }
+    A(A&& other)
+    {
+        count++;
+    }
+    ~A()
+    {
+        count--;
+    }
+    static int getC()
+    {
+        return count;
+    }
 };
 
-
+int A::count = 0;
 int main()
 {
-    A obj(4, 5);
-    A obj1(6, 7);
-    A obj2(10, 8);
-    A obj3(9, 7);
-    std::cout << count << std::endl;
+    A obj;
+    A obj1 = obj;
+    A obj2 = std::move(obj);    
+    std::cout << A::getC() << std::endl;
     return 0;
 }
