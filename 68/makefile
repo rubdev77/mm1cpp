@@ -2,7 +2,7 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall
 # Define the source files and the executable name
-SRCS = main.cpp Animal.cpp Zoo.cpp Chicken.cpp Dog.cpp Cat.cpp Lion.cpp Kangaroo.cpp Penguin.cpp
+SRCS = main.cpp Animal.cpp Zoo.cpp Animals.cpp
 TARGET = exe
 # Rule to build the target executable
 $(TARGET): $(SRCS)

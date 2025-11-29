@@ -1,12 +1,7 @@
 #include <iostream>
 #include "Animal.h"
 #include "Zoo.h"
-#include "Dog.h"
-#include "Cat.h"
-#include "Lion.h"
-#include "Chicken.h"
-#include "Kangaroo.h"
-#include "Penguin.h"
+#include "Animals.h"
 #include <iostream>
 int main() {
     
