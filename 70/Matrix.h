@@ -1,18 +1,18 @@
-#ifndef MATRIX_H
-#define MATRIX_H
+#ifndef Vector_H
+#define Vector_H
 template <typename T>
-class Matrix
+class Vector
 {
     protected:
     T ** mat;
     int n; 
     int m;
     public:
-    Matrix(int row, int column);
-    Matrix();
-    ~Matrix();
-    Matrix(const Matrix<T>&);
-    Matrix& operator=(const Matrix<T>&);
+    Vector(int row, int column);
+    Vector();
+    ~Vector();
+    Vector(const Vector<T>&);
+    Vector& operator=(const Vector<T>&);
     public:
     T* operator[](int i);
     int retn();
@@ -21,14 +21,14 @@ class Matrix
     virtual void Print();
 };
 template <typename T>
-Matrix<T>::Matrix()
+Vector<T>::Vector()
 {
     mat = nullptr;
     n = 0;
     m = 0;
 }
 template <typename T>
-Matrix<T>::Matrix(int row, int column)
+Vector<T>::Vector(int row, int column)
 {
         n = row;
         m = column;
@@ -39,7 +39,7 @@ Matrix<T>::Matrix(int row, int column)
         }
 }
 template <typename T>
-Matrix<T>::~Matrix()
+Vector<T>::~Vector()
 {
         
         for(int i = 0; i < n; i++)
@@ -49,7 +49,7 @@ Matrix<T>::~Matrix()
         delete [] mat;
 }
 template <typename T>
-Matrix<T>::Matrix(const Matrix& oth)
+Vector<T>::Vector(const Vector& oth)
 {
     this -> n = oth.n;
     this -> m = oth.m;
@@ -64,7 +64,7 @@ Matrix<T>::Matrix(const Matrix& oth)
         }
 }
 template <typename T>
-Matrix<T>& Matrix<T>::operator=(const Matrix& oth)
+Vector<T>& Vector<T>::operator=(const Vector& oth)
 {
      if(this==&oth)
     {
@@ -89,9 +89,9 @@ Matrix<T>& Matrix<T>::operator=(const Matrix& oth)
     return *this;
 }
 template <typename T>
-void Matrix<T>::Print()
+void Vector<T>::Print()
 {
-    std::cout << "<<<   Print Matrix   >>>\n" << std::endl;
+    std::cout << "<<<   Print Vector   >>>\n" << std::endl;
     for(int i = 0; i < n; i++)
     {
         for(int j = 0; j < m; j++)
@@ -102,24 +102,24 @@ void Matrix<T>::Print()
     }
 }
 template <typename T>
-T* Matrix<T>::operator [](int i)
+T* Vector<T>::operator [](int i)
 {
     return mat[i];
 }
 template <typename T>
-int Matrix<T>::retn()
+int Vector<T>::retn()
 {
     return this->n;
 }
 template <typename T>
-int Matrix<T>::retm()
+int Vector<T>::retm()
 {
     return this->m;
 }
 template <typename T>
-void Matrix<T>::Init()
+void Vector<T>::Init()
 {
-    std::cout << "<<< Init Matrix >>>" << std::endl;
+    std::cout << "<<< Init Vector >>>" << std::endl;
     for(int i = 0; i < n; i++)
     {
         for(int j = 0; j < m; j++)
