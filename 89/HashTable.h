@@ -21,12 +21,6 @@ HashTable<T>::HashTable() : table(MOD)
 
 }
 
-template <typename T>
-int HashTable<T>::hash(const T& x) const
-{
-    return std::hash<T>{}(x) % MOD;
-}
-
 template <>
 int HashTable<int>::hash(const int & x) const
 {
@@ -38,7 +32,7 @@ int HashTable<std::string>::hash(const std::string & x) const
 {
     int count = 0;
     for(int i = 0; i < x.size(); i++)
-    {
+    {   
         count += int(x[i]);
     }
 
