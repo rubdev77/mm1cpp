@@ -1,0 +1,14 @@
+# Ignore common C++ executables
+*.out
+*.exe
+*.o
+*.obj
+
+# Ignore specific compiled binaries (if they have no extension)
+# Add names of your specific output files here if needed
+main
+exe
+
+# Ignore OS-specific junk
+.DS_Store
+Thumbs.db
